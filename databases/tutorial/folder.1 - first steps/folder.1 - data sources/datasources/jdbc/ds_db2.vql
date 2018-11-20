@@ -1,0 +1,34 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE JDBC ds_db2
+    FOLDER = '/1 - first steps/1 - data sources'
+    DRIVERCLASSNAME = 'com.ibm.db2.jcc.DB2Driver'
+    DATABASEURI = '${databases.tutorial.folder.1 - first steps.folder.1 - data sources.datasources.jdbc.ds_db2.DATABASEURI}'
+    USERNAME = '${databases.tutorial.folder.1 - first steps.folder.1 - data sources.datasources.jdbc.ds_db2.USERNAME}'
+    USERPASSWORD = '${databases.tutorial.folder.1 - first steps.folder.1 - data sources.datasources.jdbc.ds_db2.USERPASSWORD}' ${databases.tutorial.folder.1 - first steps.folder.1 - data sources.datasources.jdbc.ds_db2.USERPASSWORD.ENCRYPTED}
+    CLASSPATH = 'db2-9'
+    DATABASENAME = 'db2'
+    DATABASEVERSION = '9'
+    FETCHSIZE = 1000
+    VALIDATIONQUERY = 'select 1 from SYSIBM.SYSDUMMY1'
+    INITIALSIZE = 4
+    MAXIDLE = -1
+    MINIDLE = 0
+    MAXACTIVE = 20
+    EXHAUSTEDACTION = 1
+    TESTONBORROW = true
+    TESTONRETURN = false
+    TESTWHILEIDLE = false
+    TIMEBETWEENEVICTION = -1
+    NUMTESTPEREVICTION = 3
+    MINEVICTABLETIME = 1800000
+    POOLPREPAREDSTATEMENTS = false
+    MAXSLEEPINGPS = 4
+    INITIALCAPACITYPS = 8
+    DATA_LOAD_CONFIGURATION (
+        BATCHINSERTSIZE = 200
+    )
+    SOURCECONFIGURATION (
+        delegateprojectsubquery = false,
+        delegatescalarfunctionslist = (abs, acos, addday, addhour, addminute, addmonth, addsecond, addweek, addyear, ascii, asin, atan, atan2, case, ceil, char, coalesce, concat, cos, cot, degrees, div, exp, floor, formatdate, getday, getdayofweek, getdayofyear, getdaysbetween, gethour, getmillisecond, getminute, getmonth, getquarter, getsecond, getweek, getyear, instr, len, ln, log, lower, ltrim, max, min, mod, mult, now, nullif, position(literal), pow, power, radians, repeat, replace, round, rtrim, sign, sin, sql_trim, sqrt, substr, substring, subtract, sum, tan, textcat, textconstant, to_date, to_localdate, to_time, to_timestamp, to_timestamptz, trim, upper, xmlquery, xpath)
+    );
+
